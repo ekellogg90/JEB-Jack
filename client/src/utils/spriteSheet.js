@@ -1,4 +1,5 @@
-const ssWidth = 5020; //when ss is used it means "sprite sheet"
+//when ss is used it means "sprite sheet"
+const ssWidth = 5020;
 const ssHeight = 5096;
 const rows = 7;
 const columns = 10;
