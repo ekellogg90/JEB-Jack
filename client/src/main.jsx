@@ -5,6 +5,8 @@ import App from './App.jsx';
 import HomePage from './pages/HomePage.jsx';
 // import ProfilePage from './pages/ProfilePage.jsx';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const router = createBrowserRouter([
   {
