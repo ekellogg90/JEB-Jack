@@ -1,0 +1,42 @@
+export default function LeaderBoardPage() {
+    const leaderBoard = [
+        {
+            id: 0,
+            username: 'Eric',
+            wins: 1
+        },
+        {
+            id: 1,
+            username: 'Ben',
+            wins: 2
+        },
+        {
+            id: 2,
+            username: 'John',
+            wins: 3
+        },
+    ]
+
+    return (
+        <>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Player</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {leaderBoard.map((player) => (
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>{player.username}</td>
+                            <td>{player.wins}</td>
+                        </tr>
+                    ))}
+                </tbody>
+
+            </table>
+        </>
+    )
+}
