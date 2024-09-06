@@ -1,7 +1,7 @@
 //when ss is used it means "sprite sheet"
-function spriteSheetSlicer(width, height, ssRows, ssCols, filePath, skipNum) {
-    const cardWidth = Math.floor((width - (ssCols + 1)) / ssCols); // 1 is the 1px boarder on all the sprites
-    const cardHeight = Math.floor((height - (ssRows + 1)) / ssRows); // same thing with 1 here
+function spriteSheetSlicer(ssWidth, ssHeight, ssRows, ssCols, filePath, skipNum) {
+    const cardWidth = Math.floor((ssWidth - (ssCols + 1)) / ssCols); // 1 is the 1px boarder on all the sprites
+    const cardHeight = Math.floor((ssHeight - (ssRows + 1)) / ssRows); // same thing with 1 here
 
     const canvas = document.createElement('canvas'); // will probably remove and change into the card component later but not sure how exatly this will work
     const context = canvas.getContext('2d'); // rendering for <canvas> element
@@ -38,3 +38,12 @@ function spriteSheetSlicer(width, height, ssRows, ssCols, filePath, skipNum) {
 const regularDeck = spriteSheetSlicer(5020, 5096, 7, 10, '../assets/sprite_sheets/regularDeck.png', 4);
 const specialDeck1 = spriteSheetSlicer(4016, 4368, 6, 8, '../assets/sprite_sheets/specialDeck1.png', 7);
 const specialDeck2 = spriteSheetSlicer(2008, 2184, 3, 4, '../assets/sprite_sheets/specialDeck2.png', 1);
+
+export default { regularDeck, specialDeck1, specialDeck2 };
+
+/* import will look like
+
+import decks from './spriteSheets';
+
+const { regularDeck, specialDeck1, specialDeck2 } = decks;
+*/
