@@ -17,6 +17,10 @@ export default function LeaderBoardPage() {
         },
     ]
 
+    const leaderBoardSorted = leaderBoard.sort(function(a, b) {
+        return (b.wins - a.wins)
+    });
+
     return (
         <>
             <table className="table">
@@ -27,15 +31,13 @@ export default function LeaderBoardPage() {
                     </tr>
                 </thead>
                 <tbody>
-                    {leaderBoard.map((player) => (
+                    {leaderBoardSorted.map((player) => (
                         <tr>
-                            <th scope="row">1</th>
                             <td>{player.username}</td>
                             <td>{player.wins}</td>
                         </tr>
                     ))}
                 </tbody>
-
             </table>
         </>
     )
