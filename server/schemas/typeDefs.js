@@ -11,6 +11,10 @@ const typeDefs = /* GraphQL */`
     user: User
   }
 
+  type Query {
+    me: User
+  }
+
   type Mutation {
     login(username: String!, password: String!): Auth
     signup(username: String!, password: String!): Auth
