@@ -13,11 +13,13 @@ const typeDefs = /* GraphQL */`
 
   type Query {
     me: User
+    leaderBoard: [User]!
   }
 
   type Mutation {
     login(username: String!, password: String!): Auth
     signup(username: String!, password: String!): Auth
+    addWin(id: ID!): User
   }
 `;
 

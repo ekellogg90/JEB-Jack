@@ -9,11 +9,14 @@ const resolvers = {
             }
             throw AuthenticationError;
         },
+        leaderBoard: async () => {
+            return User.find();
+        },
     },
 
     Mutation: {
         signup: async (parent, { username, password }) => {
-            const user = await User.create({ username, password });
+            const user = await User.create({ username, password, wins: 0 });
             const token = signToken(user);
             return { token, user };
         },
@@ -33,6 +36,13 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+        addWin: async (parent, { id }) => {
+            return User.findOneAndUpdate(
+                { _id: id },
+                { $inc: { wins: 1 } },
+                { new: true }
+            )
+        }
     },
 };
 
