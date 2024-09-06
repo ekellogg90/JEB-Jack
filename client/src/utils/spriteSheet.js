@@ -42,10 +42,3 @@ export const specialDeck1Promise = spriteSheetCardCutter(4016, 4368, 6, 8, '../a
 export const specialDeck2Promise = spriteSheetCardCutter(2008, 2184, 3, 4, '../assets/sprite_sheets/specialDeck2.png', 1);
 
 export default { regularDeckPromise, specialDeck1Promise, specialDeck2Promise };
-
-/* import will look like
-
-import decks from './spriteSheets';
-
-const { regularDeck, specialDeck1, specialDeck2 } = decks;
-*/
