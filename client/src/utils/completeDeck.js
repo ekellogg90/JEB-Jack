@@ -30,7 +30,9 @@ const uniqueCards = [{card: "mtg", value: "black lotus"}, {card: "pokemon", valu
 {card: "ygo", value: "dark magician"}, {card: "colin", value: "abomb"},
 {card: "monopoly", value: "goojf"}, {card: "baseball", value: "babe ruth"}];
 
-//complete deck
+//complete deck   NOTE: did not add 2 standard decks, may need to change later
 const completeDeck = [...standardCards, ...unoCards, ...tarrotCards, ...mahjongTiles, ...uniqueCards];
+
+//maybe make dealer deck that exludes some complicated cards to make the dealer use
 
 export default completeDeck;
