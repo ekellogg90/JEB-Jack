@@ -5,10 +5,19 @@ const values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "
 const standardCards = cards.flatMap((card) => values.map((value) => ({card, value})));
 
 //uno
-const unoCards = [{card: "uno", value: "green 1"}, {card: "uno", value: "yellow 2"},
+/* const unoCards = [{card: "uno", value: "green 1"}, {card: "uno", value: "yellow 2"},
 {card: "uno", value: "blue 3"}, {card: "uno", value: "green 4"}, {card: "uno", value: "blue 5"},
 {card: "uno", value: "green 6"}, {card: "uno", value: "red 7"}, {card: "uno", value: "blue 8"},
 {card: "uno", value: "yellow 9"}, {card: "uno", value: "green +2"}, {card: "uno", value: "red +2"},
+{card: "uno", value: "green reverse"}, {card: "uno", value: "red reverse"},
+{card: "uno", value: "green skip"}, {card: "uno", value: "yellow skip"},]
+WITH COLORS^
+*/
+
+const unoCards = [{card: "uno", value: "1"}, {card: "uno", value: "2"},
+{card: "uno", value: "3"}, {card: "uno", value: "4"}, {card: "uno", value: "5"},
+{card: "uno", value: "6"}, {card: "uno", value: "7"}, {card: "uno", value: "8"},
+{card: "uno", value: "9"}, {card: "uno", value: "green +2"}, {card: "uno", value: "red +2"},
 {card: "uno", value: "green reverse"}, {card: "uno", value: "red reverse"},
 {card: "uno", value: "green skip"}, {card: "uno", value: "yellow skip"},]
 
