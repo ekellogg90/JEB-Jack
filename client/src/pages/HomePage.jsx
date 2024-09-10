@@ -1,4 +1,5 @@
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import bjTable from '../assets/bjtable.jpg';
 
 export default function HomePage() {
@@ -16,9 +17,11 @@ export default function HomePage() {
             </h1>
 
             <div className="card align-items-center justify-content-center" style={cardStyle}>
-                <Button type='button' variant='danger'>
-                    PLAY GAME
-                </Button>
+                <Link to='/game'>
+                    <Button type='button' variant='danger'>
+                        PLAY GAME
+                    </Button>
+                </Link>
             </div>
         </div>
     </>
