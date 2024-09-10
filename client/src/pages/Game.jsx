@@ -1,6 +1,6 @@
 import completeDeck from '../utils/completeDeck';
 import { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
+import Button from '../components/Button';
 import Hand from '../components/Hand';
 
 export default function Game() {
