@@ -13,7 +13,7 @@ const Card = ({ deckName, cardIndex}) => {
                 if (deck && cardIndex < deck.length) {
                     setCardDataUrl(deck[cardIndex]);
                 } else {
-                    console.log('indexing error')
+                    console.log('indexing error');
                 }
             } catch (err) {
                 console.log(err);
