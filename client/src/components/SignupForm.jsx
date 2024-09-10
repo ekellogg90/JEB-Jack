@@ -4,6 +4,11 @@ import { useMutation } from '@apollo/client';
 import { SIGNUP_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
+// Avatar Pics:
+import cat from '../assets/cat.png';
+import koala from '../assets/koala.png';
+import penguin from '../assets/penguin.png';
+
 const SignupForm = () => {
     const [userFormData, setUserFormData] = useState({ username: '', password: '' });
     const [validated] = useState(false);
@@ -75,6 +80,16 @@ const SignupForm = () => {
                         required
                     />
                     <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Label htmlFor='avatar'>Choose your Avatar</Form.Label>
+                    <select className='form-select' id="avatar">
+                        <option value={cat}>Cat</option>
+                        <option value={koala}>Koala</option>
+                        <option value={penguin}>Penguin</option>
+                    </select>
+                    <Form.Control.Feedback type='invalid'>Avatar is required!</Form.Control.Feedback>
                 </Form.Group>
 
                 <Button
