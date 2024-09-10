@@ -21,15 +21,15 @@ const unoCards = [{card: "uno", value: "1"}, {card: "uno", value: "2"},
 {card: "uno", value: "green reverse"}, {card: "uno", value: "red reverse"},
 {card: "uno", value: "green skip"}, {card: "uno", value: "yellow skip"},]
 
-//tarrot
-const tarrot = "tarrot";
+//tarot
+const tarot = ["tarot"];
 const tValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
 
-const tarrotCards = tarrot.flatMap((card) => tValues.map((value) => ({card, value})));
+const tarotCards = tarot.flatMap((card) => tValues.map((value) => ({card, value})));
 
-//majong
-const mahjong = "mahjong";
+//mahjong
+const mahjong = ["mahjong"];
 const mValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 const mahjongTiles = mahjong.flatMap((card) => mValues.map((value) => ({card, value})));
@@ -40,7 +40,7 @@ const uniqueCards = [{card: "mtg", value: "black lotus"}, {card: "pokemon", valu
 {card: "monopoly", value: "goojf"}, {card: "baseball", value: "babe ruth"}];
 
 //complete deck   NOTE: did not add 2 standard decks, may need to change later
-const completeDeck = [...standardCards, ...unoCards, ...tarrotCards, ...mahjongTiles, ...uniqueCards];
+const completeDeck = [...standardCards, ...unoCards, ...tarotCards, ...mahjongTiles, ...uniqueCards];
 
 //maybe make dealer deck that exludes some complicated cards to make the dealer use
 
