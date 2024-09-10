@@ -15,6 +15,9 @@ const userSchema = new Schema(
         wins: {
             type: Number,
         },
+        avatar: {
+            type: String,
+        }
     },
     {
         toJSON: {
