@@ -1,19 +1,34 @@
-import { regularDeckPromise, specialDeck1Promise, specialDeck2Promise } from '../utils/spriteSheet';
+import React, {useState, useEffect} from "react";
+import { resolveDecks } from "./ResolveDecks";
 
-async function resolveDecks() {
-    try {
-        const regularDeck = await regularDeckPromise;
-        const specialDeck1 = await specialDeck1Promise;
-        const specialDeck2 = await specialDeck2Promise;
+const Card = ({ deckName, cardIndex}) => {
+    const [cardDataUrl, setCardDataUrl] = useState(null); //null may be best solution but not sure
 
-        console.log('Regular Deck:', regularDeck);
-        console.log('Special Deck 1:', specialDeck1);
-        console.log('Special Deck 2:', specialDeck2);
-    } catch (err) {
-        console.error('Error loading decks:', err);
-    }
-}
+    useEffect(() => {
+        const loadCard = async () => {
+            try {
+                const decks = await resolveDecks();
+                const deck = decks[deckName];
 
-resolveDecks();
+                if (deck && cardIndex < deck.length) {
+                    setCardDataUrl(deck[cardIndex]);
+                } else {
+                    console.log('indexing error');
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        loadCard();
+    }, [deckName, cardIndex]);
 
-export default function Card() {}
+    return (
+        <div>
+            {cardDataUrl ? (
+                <img src={cardDataUrl} alt={`Card at index ${cardIndex}`} />
+            ) : (
+                <p>loading</p>
+            )}
+        </div>
+    );
+};
