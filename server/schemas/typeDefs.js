@@ -4,6 +4,7 @@ const typeDefs = /* GraphQL */`
     username: String!
     password: String!
     wins: Int
+    avatar: String
   }
 
   type Auth {

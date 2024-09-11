@@ -11,7 +11,7 @@ export const GET_LEADER_BOARD = gql`
 `;
 
 export const GET_ME = gql`
-    { 
+    query me { 
         me {
            _id
            username

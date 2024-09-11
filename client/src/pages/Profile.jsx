@@ -4,27 +4,30 @@ import { GET_ME } from '../utils/queries';
 
 export default function Profile() {
 
-    const sample = [
-        {
-            _id: 0,
-            username: 'Eric',
-            wins: 1,
-        }
-    ]
+    // const sample = [
+    //     {
+    //         _id: 0,
+    //         username: 'Eric',
+    //         wins: 1,
+    //     }
+    // ]
 
     const { loading, data } = useQuery(GET_ME);
-    const userData = data?.me || sample;
+    // const userData = data?.me || sample;
+    // console.log("Profile log:", userData);
 
       // if data isn't here yet, say so
   if (loading) {
     return <h2>LOADING...</h2>;
   }
+  const userData = data?.me || {};
+  console.log("Profile log:", userData);
 
     return (        
         <>
             <div className=''>
                 <Container>
-                    <h1>Profile</h1>
+                    <h1>Welcome {userData.username}</h1>
                 </Container>
                 </div>
                 <Container>

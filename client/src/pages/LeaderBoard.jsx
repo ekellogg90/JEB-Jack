@@ -37,7 +37,7 @@ export default function LeaderBoardPage() {
     const leaderBoard = data?.leaderBoard || sample;
     // const leaderBoard = sample;
 
-    console.log(leaderBoard)
+    console.log("Leaderboard log:", leaderBoard)
 
     const leaderBoardSorted = [...leaderBoard].sort(function(a, b) {
         return (b.wins - a.wins)
