@@ -15,11 +15,11 @@ export default function regularHand({cards,owner,handValue}) {
                 />
             ))}
             
-            {/*cards.map((card, index) => (
+            {cards.map((card, index) => (
                 <div key={index}>
                     {card.card}:{card.valueOfCard}
                 </div>
-            ))*/}
+            ))}
         </div>
     </div>
     );

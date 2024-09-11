@@ -57,14 +57,27 @@ export default function Game() {
             }
         });
 
-        // Get each hand's score
-        const newPlayerValue = calcHandValue(playerCards);
+        if (playerCards[0].card === 'tarot') {
+            if (playerCards[1].card === 'tarot') {
+                const val1 = parseInt(playerCards[0].valueOfCard);
+                const val2 = parseInt(playerCards[1].valueOfCard);
+                const newPlayerValue = (val1 > val2) ? (val1) : (val2);
+                setPlayerHandValue(newPlayerValue);
+            } else {
+                const newPlayerValue = parseInt(playerCards[0].valueOfCard);
+                setPlayerHandValue(newPlayerValue);
+            }
+        } else {
+            const newPlayerValue = calcHandValue(playerCards);
+            setPlayerHandValue(newPlayerValue);
+        }
+
+        
         const newDealerValue = calcHandValue([dealerCard]);
         
         // Set all state variables
         setPlayerHand(playerCards);
         setDealerHand([dealerCard]);
-        setPlayerHandValue(newPlayerValue);
         setDealerHandValue(newDealerValue);
     };
 
@@ -121,7 +134,7 @@ export default function Game() {
         let aceCount = 0;
         hand.forEach((card) => {
             if (card.card === 'tarot') {
-                value = card.valueOfCard;
+                value = parseInt(card.valueOfCard);
                 return value;
             } else if (card.valueOfCard === "jack" || card.valueOfCard === "queen" || card.valueOfCard === "king") {
                 value += 10;
@@ -129,7 +142,7 @@ export default function Game() {
                 aceCount++;
                 value += 11;
             } else {
-                value += parseInt(card.valueOfCard)
+                value += parseInt(card.valueOfCard);
             }
         });
         while (value > 21 && aceCount > 0) {
