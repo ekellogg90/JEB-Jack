@@ -1,4 +1,5 @@
 import Card from "./Card";
+import cardIMGInfo from './utils/cardIMGInfo';
 
 export default function regularHand({cards,owner,handValue}) {
     const cardIMGarr = cardIMGInfo(cards);
