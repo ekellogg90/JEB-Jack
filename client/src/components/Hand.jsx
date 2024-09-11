@@ -23,25 +23,13 @@ export default function regularHand({cards,owner,handValue}) {
             ))}  
             </Row>
         </Container>
-
-        {/* <div>
-            <div>
-            {cardIMGarr.map((card, index) => (
-                <Card 
-                    key={index}
-                    deckName={card.deckName}
-                    cardIndex={card.cardIndex}
-                />
-            ))} */}
-            
-            {/*cards.map((card, index) => (
+            ))}
+            {cards.map((card, index) => (
                 <div key={index}>
                     {card.card}:{card.valueOfCard}
                 </div>
-            ))*/}
-{/* 
-            </div>
-        </div> */}
+            ))}
+        </div>
     </div>
     );
 }

@@ -21,7 +21,6 @@ async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath
         ss.src = filePath;
 
         ss.onload = () => {
-            console.log("ss 4");
             const cards = [];
             for (let row = 0; row < ssRows; row++) {
                 for (let col = 0; col< ssCols; col++) {
