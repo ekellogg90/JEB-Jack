@@ -8,13 +8,16 @@ export default function SpecialHand({cards}) {
     const handleSpecialCards = (card) => {
         console.log(card);
         switch(card) {
-            case "+2":
+            case "green +2":
+            case "red +2":
                 console.log('force opponent to draw 2');
                 break;
-            case "reverse":
+            case "green reverse":
+            case "red reverse":
                 console.log('?');
                 break;
-            case "skip":
+            case "green skip":
+            case "yellow skip":
                 console.log('draw 1 and choose if you want to keep it');
                 break;
             case "black lotus":
@@ -45,15 +48,18 @@ export default function SpecialHand({cards}) {
     <div>
         <h2>Player's Special Hand</h2>
         <div>
-            {/* {cardIMGarr.map((card, index) => (
-            <Card key={index}
-            deckName={card.deckName}
-            cardIndex={card.cardIndex}
-            />
-            ))} */}
-            {cards.map((card, index) => (
-                <div key={index} onClick={(e) => handleSpecialCards(card.valueOfCard, e)}>{card.card}:{card.valueOfCard}</div>
+            {cardIMGarr.map((card, index) => (
+                <div key={index} onClick={(e) => handleSpecialCards(cards[index].valueOfCard, e)}>
+                    <Card 
+                    deckName={card.deckName}
+                    cardIndex={card.cardIndex}
+                    />
+                </div>
+            
             ))}
+            {/* {cards.map((card, index) => (
+                <div key={index} onClick={(e) => handleSpecialCards(card.valueOfCard, e)}>{card.card}:{card.valueOfCard}</div>
+            ))} */}
         </div>
     </div>
     );
