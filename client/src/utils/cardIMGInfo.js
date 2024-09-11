@@ -46,6 +46,7 @@ export default function cardIMGInfo(cards) {
                     default:
                         break;
                 }
+                break;
             case "diamond":
                 switch (card.valueOfCard) {
                     case "10":
@@ -90,6 +91,7 @@ export default function cardIMGInfo(cards) {
                     default:
                         break;
                 }
+                break;
             case "heart":
                 switch (card.valueOfCard) {
                     case "10":
@@ -134,6 +136,7 @@ export default function cardIMGInfo(cards) {
                     default:
                         break;
                 }
+                break;
             case "spade":
                 switch (card.valueOfCard) {
                     case "10":
@@ -178,6 +181,7 @@ export default function cardIMGInfo(cards) {
                     default:
                         break;
                     }
+                    break;
                 case "uno":
                     switch (card.valueOfCard) {
                         case "1":
@@ -228,6 +232,7 @@ export default function cardIMGInfo(cards) {
                         default:
                             break;
                     }
+                    break;
                 case "tarot":
                     switch (card.valueOfCard) {
                         case "0":
@@ -299,6 +304,7 @@ export default function cardIMGInfo(cards) {
                         default:
                             break;
                     }
+                    break;
                 case "mtg":
                     switch (card.valueOfCard) {
                         case "black lotus":
@@ -307,6 +313,7 @@ export default function cardIMGInfo(cards) {
                         default:
                             break;
                     }
+                    break;
                 case "pokemon":
                     switch (card.valueOfCard) {
                         case "charizard":
@@ -315,6 +322,7 @@ export default function cardIMGInfo(cards) {
                         default:
                             break;
                     }
+                    break;
                 case "ygo":
                     switch (card.valueOfCard) {
                         case "dark magician":
@@ -323,6 +331,7 @@ export default function cardIMGInfo(cards) {
                         default:
                             break;
                     }
+                    break;
                 case "colin":
                     switch (card.valueOfCard) {
                         case "abomb":
@@ -331,6 +340,7 @@ export default function cardIMGInfo(cards) {
                         default:
                             break;
                     }
+                    break;
                 case "monopoly":
                     switch (card.valueOfCard) {
                         case "goojf":
@@ -339,6 +349,7 @@ export default function cardIMGInfo(cards) {
                         default:
                             break;
                     }
+                    break;
                 case "baseball":
                     switch (card.valueOfCard) {
                         case "babe ruth":
@@ -347,6 +358,7 @@ export default function cardIMGInfo(cards) {
                         default:
                             break;
                     }
+                    break;
                 case "mahjong":
                     switch (card.valueOfCard) {
                         case "1":
@@ -379,6 +391,7 @@ export default function cardIMGInfo(cards) {
                         default:
                             break;
                     }
+                    break;
                 default:
                     break;
         }   

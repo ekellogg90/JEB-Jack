@@ -1,36 +1,43 @@
-import React, {useState, useEffect} from "react";
-import { resolveDecks } from "./ResolveDecks";
+import React, { useState, useEffect } from 'react';
+import { resolveDecks } from './ResolveDecks';
 
-const Card = ({ deckName, cardIndex}) => {
-    const [cardDataUrl, setCardDataUrl] = useState(null); //null may be best solution but not sure
+const Card = ({ deckName, cardIndex }) => {
+    const [cards, setCards] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        const loadCard = async () => {
+        const loadCards = async () => {
             try {
                 const decks = await resolveDecks();
                 const deck = decks[deckName];
-
-                if (deck && cardIndex < deck.length) {
-                    setCardDataUrl(deck[cardIndex]);
+                if (deck) {
+                    setCards(deck);
                 } else {
-                    console.log('indexing error');
+                    setError('Deck not found');
                 }
             } catch (err) {
-                console.log(err);
+                setError('Failed to load deck');
+                console.error(err);
+            } finally {
+                setLoading(false);
             }
         };
-        loadCard();
-    }, [deckName, cardIndex]);
 
-    return (
-        <div>
-            {cardDataUrl ? (
-                <img src={cardDataUrl} alt={`Card at index ${cardIndex} of sprite sheet`} />
-            ) : (
-                <p>loading</p>
-            )}
-        </div>
-    );
+        loadCards();
+    }, [deckName]);
+
+    //for testing but also useful
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
+    if (!cards || cardIndex >= cards.length) {
+        return <p>Card not found</p>;
+    }
+
+    const card = cards[cardIndex];
+
+    return <div>{card}</div>;
 };
 
 export default Card;
