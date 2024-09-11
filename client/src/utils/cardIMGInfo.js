@@ -17,28 +17,28 @@ export default function cardIMGInfo(cards) {
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "14"});
                         break;
                     case "5":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "18"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "17"});
                         break;
                     case "6":
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "23"});
                         break;
                     case "7":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "27"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "26"});
                         break;
                     case "8":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "32"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "31"});
                         break;
                     case "9":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "36"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "35"});
                         break;
                     case "ace":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "41"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "40"});
                         break;
                     case "jack":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "48"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "47"});
                         break;
                     case "king":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "57"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "56"});
                         break;
                     case "queen":
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "59"});
@@ -62,22 +62,22 @@ export default function cardIMGInfo(cards) {
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "15"});
                         break;
                     case "5":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "19"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "18"});
                         break;
                     case "6":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "24"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "23"});
                         break;
                     case "7":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "28"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "27"});
                         break;
                     case "8":
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "33"});
                         break;
                     case "9":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "37"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "36"});
                         break;
                     case "ace":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "42"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "41"});
                         break;
                     case "jack":
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "50"});
@@ -86,7 +86,7 @@ export default function cardIMGInfo(cards) {
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "58"});
                         break;
                     case "queen":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "62"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "61"});
                         break;
                     default:
                         break;
@@ -104,34 +104,34 @@ export default function cardIMGInfo(cards) {
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "11"});
                         break;
                     case "4":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "16"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "15"});
                         break;
                     case "5":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "21"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "20"});
                         break;
                     case "6":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "25"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "24"});
                         break;
                     case "7":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "29"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "28"});
                         break;
                     case "8":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "34"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "33"});
                         break;
                     case "9":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "38"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "37"});
                         break;
                     case "ace":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "43"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "42"});
                         break;
                     case "jack":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "53"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "52"});
                         break;
                     case "king":
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "19"});
                         break;
                     case "queen":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "64"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "63"});
                         break;
                     default:
                         break;
@@ -149,34 +149,34 @@ export default function cardIMGInfo(cards) {
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "12"});
                         break;
                     case "4":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "17"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "16"});
                         break;
                     case "5":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "22"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "21"});
                         break;
                     case "6":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "26"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "25"});
                         break;
                     case "7":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "31"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "30"});
                         break;
                     case "8":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "35"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "34"});
                         break;
                     case "9":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "39"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "38"});
                         break;
                     case "ace":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "45"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "44"});
                         break;
                     case "jack":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "55"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "54"});
                         break;
                     case "king":
                         cardIMGarr.push({deckName: "regularDeck", cardIndex: "39"});
                         break;
                     case "queen":
-                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "66"});
+                        cardIMGarr.push({deckName: "regularDeck", cardIndex: "65"});
                         break;
                     default:
                         break;
@@ -371,16 +371,16 @@ export default function cardIMGInfo(cards) {
                             cardIMGarr.push({deckName: "specialDeck2", cardIndex: "2"});
                             break;
                         case "4":
-                            cardIMGarr.push({deckName: "specialDeck2", cardIndex: "3"});
-                            break;
-                        case "5":
                             cardIMGarr.push({deckName: "specialDeck2", cardIndex: "4"});
                             break;
-                        case "6":
+                        case "5":
                             cardIMGarr.push({deckName: "specialDeck2", cardIndex: "5"});
                             break;
-                        case "7":
+                        case "6":
                             cardIMGarr.push({deckName: "specialDeck2", cardIndex: "6"});
+                            break;
+                        case "7":
+                            cardIMGarr.push({deckName: "specialDeck2", cardIndex: "3"});
                             break;
                         case "8":
                             cardIMGarr.push({deckName: "specialDeck2", cardIndex: "7"});
