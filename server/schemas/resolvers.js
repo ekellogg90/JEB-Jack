@@ -38,7 +38,7 @@ const resolvers = {
             }
 
             const token = signToken(user);
-            console.log("Token: ", token);
+            // console.log("Token: ", token);
             return { token, user };
         },
         addWin: async (parent, { id }) => {
