@@ -1,4 +1,4 @@
-import { regularDeckPromise, specialDeck1Promise, specialDeck2Promise } from '../utils/spriteSheet.js';
+import { regularDeckPromise, specialDeck1Promise, specialDeck2Promise } from '../utils/spriteSheet';
 
 export async function resolveDecks() {
     try {

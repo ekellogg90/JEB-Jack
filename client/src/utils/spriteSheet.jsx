@@ -1,4 +1,4 @@
-import { Surface, Group, Image as CanvasImage } from 'react-canvas';
+// import { Surface, Group, Image as CanvasImage } from 'react-canvas';
 
 //when ss is used it means "sprite sheet"
 async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath, skipNum) {
