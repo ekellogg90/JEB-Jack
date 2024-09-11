@@ -19,7 +19,7 @@ const typeDefs = /* GraphQL */`
 
   type Mutation {
     login(username: String!, password: String!): Auth
-    signup(username: String!, password: String!): Auth
+    signup(username: String!, password: String!, avatar: String): Auth
     addWin(id: ID!): User
   }
 `;
