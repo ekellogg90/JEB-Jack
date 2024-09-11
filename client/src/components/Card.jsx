@@ -25,7 +25,7 @@ const Card = ({ deckName, cardIndex}) => {
     return (
         <div>
             {cardDataUrl ? (
-                <img src={cardDataUrl} alt={`Card at index ${cardIndex}`} />
+                <img src={cardDataUrl} alt={`Card at index ${cardIndex} of sprite sheet`} />
             ) : (
                 <p>loading</p>
             )}
