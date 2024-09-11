@@ -2,6 +2,7 @@ import completeDeck from '../utils/completeDeck';
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import Hand from '../components/Hand';
+import SpecialHand from '../components/SpecialHand';
 
 export default function Game() {
     const [gameDeck, setGameDeck] = useState(completeDeck);
@@ -209,7 +210,7 @@ export default function Game() {
             <div>
                 <Hand cards={dealerHand} owner={"Dealer's Hand"} handValue={dealerHandValue}/>
                 <Hand cards={playerHand} owner={"Player's Hand"} handValue={playerHandValue}/>
-                <Hand cards={playerSpecialHand} owner={"Player's Special Hand"} handValue={playerSpecialHand.length}/>
+                <SpecialHand cards={playerSpecialHand} />
             </div>
         </>
     );
