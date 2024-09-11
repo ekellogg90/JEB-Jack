@@ -1,18 +1,16 @@
+import { Surface, Group, Image as CanvasImage } from 'react-canvas';
+
 //when ss is used it means "sprite sheet"
 async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath, skipNum) {
     const cardWidth = Math.floor((ssWidth - (ssCols + 1)) / ssCols); // 1 is the 1px boarder on all the sprites
     const cardHeight = Math.floor((ssHeight - (ssRows + 1)) / ssRows); // same thing with 1 here
 
-    const canvas = document.createElement('canvas'); // will probably remove and change into the card component later but not sure how exatly this will work
-    const context = canvas.getContext('2d'); // rendering for <canvas> element
-
-    const ss = new Image();
-    ss.src = filePath;
-
     return new Promise((resolve) => {
-        const cards = [];
+        const ss = new Image();
+        ss.src = filePath;
 
         ss.onload = () => {
+            const cards = [];
             for (let row = 0; row < ssRows; row++) {
                 for (let col = 0; col< ssCols; col++) {
                     if (row === ssRows - 1 && col >= ssCols - skipNum) continue; // skips the last skipNum spaces because they are blank
@@ -22,14 +20,30 @@ async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath
                     const y = row * (cardHeight + 1) + 1;
 
                     //drawing
-                    canvas.width = cardWidth;
-                    canvas.height = cardHeight;
-                    context.drawImage(ss, x, y, cardWidth, cardHeight, 0, 0, cardWidth, cardHeight);
-
-                    //storing
-                    const cardDataUrl = canvas.toDataURL();
-                    cards.push(cardDataUrl);
-
+                    const card = (
+                        <Surface
+                            key={`${row}-${col}`}
+                            width={cardWidth}
+                            height={cardHeight}
+                        >
+                            <Group>
+                                <CanvasImage
+                                    style={{
+                                        left: 0,
+                                        top: 0,
+                                        width: cardWidth,
+                                        height: cardHeight,
+                                    }}
+                                    src={filePath}
+                                    offsetLeft={x}
+                                    offsetTop={y}
+                                    offsetWidth={cardWidth}
+                                    offsetHeight={cardHeight}
+                                />
+                            </Group>
+                        </Surface>
+                    );
+                    cards.push(card);
                 }
             }
             resolve(cards);
