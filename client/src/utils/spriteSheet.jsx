@@ -1,9 +1,20 @@
-// import { Surface, Group, Image as CanvasImage } from 'react-canvas';
+import React from 'react';
 
 //when ss is used it means "sprite sheet"
 async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath, skipNum) {
     const cardWidth = Math.floor((ssWidth - (ssCols + 1)) / ssCols); // 1 is the 1px boarder on all the sprites
     const cardHeight = Math.floor((ssHeight - (ssRows + 1)) / ssRows); // same thing with 1 here
+
+    const Canvas = ({draw, height, width}) => {
+        const canvasRef = React.useRef();
+
+        React.useEffect(() => {
+            const context = canvasRef.current.getContext('2d');
+            draw(context);
+        }, [draw]);
+
+        return <canvas ref={canvasRef} height={height} width={width} />;
+    };
 
     return new Promise((resolve) => {
         const ss = new Image();
@@ -21,27 +32,19 @@ async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath
 
                     //drawing
                     const card = (
-                        <Surface
-                            key={`${row}-${col}`}
-                            width={cardWidth}
-                            height={cardHeight}
-                        >
-                            <Group>
-                                <CanvasImage
-                                    style={{
-                                        left: 0,
-                                        top: 0,
-                                        width: cardWidth,
-                                        height: cardHeight,
-                                    }}
-                                    src={filePath}
-                                    offsetLeft={x}
-                                    offsetTop={y}
-                                    offsetWidth={cardWidth}
-                                    offsetHeight={cardHeight}
-                                />
-                            </Group>
-                        </Surface>
+                        <Canvas
+                        key={`${row}-${col}`}
+                        height={cardHeight}
+                        width={cardWidth}
+                        draw={(context) => {
+                            context.clearRect(0, 0, cardWidth, cardHeight); // makes canvas 
+                            context.drawImage(
+                            ss,
+                            x, y, cardWidth, cardHeight, // source sprite
+                            0, 0, cardWidth, cardHeight  // destination canvas
+                            );
+                        }}
+                        />
                     );
                     cards.push(card);
                 }
