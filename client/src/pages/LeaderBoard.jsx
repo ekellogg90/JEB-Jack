@@ -1,10 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { GET_LEADER_BOARD } from '../utils/queries';
 
-import cat from '../assets/cat.png';
-import koala from '../assets/koala.png';
-import penguin from '../assets/penguin.png';
-
 const avatarStyle = {
     width: '5em',
     height: '5em',
@@ -13,29 +9,7 @@ const avatarStyle = {
 export default function LeaderBoardPage() {
     const { loading, data } = useQuery(GET_LEADER_BOARD);
 
-    const sample = [
-        {
-            _id: 0,
-            username: 'Eric',
-            wins: 1,
-            avatar: cat,
-        },
-        {
-            _id: 1,
-            username: 'Ben',
-            wins: 2,
-            avatar: koala,
-        },
-        {
-            _id: 2,
-            username: 'John',
-            wins: 3,
-            avatar: penguin,
-        },
-    ]
-
-    const leaderBoard = data?.leaderBoard || sample;
-    // const leaderBoard = sample;
+    const leaderBoard = data?.leaderBoard || [];
 
     console.log("Leaderboard log:", leaderBoard)
 
@@ -48,7 +22,7 @@ export default function LeaderBoardPage() {
             {loading ? (
                 <div>Loading...</div>
             ) : (
-                <table className="table">
+                <table className="table table-success table-striped">
                     <thead>
                         <tr>
                             <th scope="col"></th>
@@ -59,18 +33,16 @@ export default function LeaderBoardPage() {
                     <tbody>
                         {leaderBoardSorted.map((player) => (
                             <tr key={player._id}>
-                                <td>
+                                <td className='align-middle'>
                                     <img src={player.avatar} style={avatarStyle}/>
                                 </td>
-                                <td>{player.username}</td>
-                                <td>{player.wins}</td>
-
+                                <td className='align-middle fs-5'>{player.username}</td>
+                                <td className='align-middle fs-5'>{player.wins}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             )}
-            
         </>
     )
 }
