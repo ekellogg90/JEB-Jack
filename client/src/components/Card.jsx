@@ -32,3 +32,5 @@ const Card = ({ deckName, cardIndex}) => {
         </div>
     );
 };
+
+export default Card;

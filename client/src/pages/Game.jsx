@@ -116,10 +116,20 @@ export default function Game() {
     const dealerHandValue = calcHandValue(dealerHand);
 
     useEffect(()=> {
-        if (playerHand.length === 0 && dealerHand === 0) {
-            setPlayerHand([getRandomCard(), getRandomCard()]); // need to account for special cards
+        if (!playerHand && !dealerHand) {
+            return;
+        };
+        const alternateHandCards = ["+2", "reverse" , "skip", "black lotus", "charizard",
+        "dark magician", "abomb", "goojf", "babe ruth"]; 
 
-            setDealerHand([getRandomCard()]); // dealer really needs two cards but one needs to be flipped over
+        if (playerHand.length === 0 && dealerHand === 0) {
+            while (playerHand.length < 2) {
+                const card = getRandomCard();
+                //if (card.)
+            }
+            //setPlayerHand([getRandomCard(), getRandomCard()]); // need to account for special cards
+
+            //setDealerHand([getRandomCard()]); // dealer really needs two cards but one needs to be flipped over
         };
         if (playerHandValue === 21) {
             handleGameOver({type: "player", message: "player wins"});
