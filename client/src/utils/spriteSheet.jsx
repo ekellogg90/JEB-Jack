@@ -21,6 +21,7 @@ async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath
         ss.src = filePath;
 
         ss.onload = () => {
+            console.log("ss 4");
             const cards = [];
             for (let row = 0; row < ssRows; row++) {
                 for (let col = 0; col< ssCols; col++) {
@@ -34,14 +35,14 @@ async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath
                     const card = (
                         <Canvas
                         key={`${row}-${col}`}
-                        height={cardHeight}
-                        width={cardWidth}
+                        height={(cardHeight -500)}
+                        width={(cardWidth -350)}
                         draw={(context) => {
                             context.clearRect(0, 0, cardWidth, cardHeight); // makes canvas 
                             context.drawImage(
                             ss,
                             x, y, cardWidth, cardHeight, // source sprite
-                            0, 0, cardWidth, cardHeight  // destination canvas
+                            0, 0, (cardWidth -350), (cardHeight -500)  // destination canvas
                             );
                         }}
                         />
@@ -54,8 +55,8 @@ async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath
     });
 }
 
-export const regularDeckPromise = spriteSheetCardCutter(5020, 5096, 7, 10, '../assets/sprite_sheets/regularDeck.png', 4);
-export const specialDeck1Promise = spriteSheetCardCutter(4016, 4368, 6, 8, '../assets/sprite_sheets/specialDeck1.png', 7);
-export const specialDeck2Promise = spriteSheetCardCutter(2008, 2184, 3, 4, '../assets/sprite_sheets/specialDeck2.png', 1);
+export const regularDeckPromise = spriteSheetCardCutter(5020, 5096, 7, 10, '/assets/sprite_sheets/regularDeck.png', 4);
+export const specialDeck1Promise = spriteSheetCardCutter(4016, 4368, 6, 8, '/assets/sprite_sheets/specialDeck1.png', 7);
+export const specialDeck2Promise = spriteSheetCardCutter(2008, 2184, 3, 4, '/assets/sprite_sheets/specialDeck2.png', 1);
 
 export default { regularDeckPromise, specialDeck1Promise, specialDeck2Promise };
