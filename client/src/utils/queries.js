@@ -9,3 +9,14 @@ export const GET_LEADER_BOARD = gql`
         }
     }
 `;
+
+export const GET_ME = gql`
+    { 
+        me {
+           _id
+           username
+           wins
+           avatar
+        }
+    }
+`;
