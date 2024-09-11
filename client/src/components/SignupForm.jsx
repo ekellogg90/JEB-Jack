@@ -10,7 +10,7 @@ import koala from '../assets/koala.png';
 import penguin from '../assets/penguin.png';
 
 const SignupForm = () => {
-    const [userFormData, setUserFormData] = useState({ username: '', password: '' });
+    const [userFormData, setUserFormData] = useState({ username: '', password: '', avatar: '' });
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const [signup, { error }] = useMutation(SIGNUP_USER);
@@ -84,11 +84,11 @@ const SignupForm = () => {
 
                 <Form.Group>
                     <Form.Label htmlFor='avatar'>Choose your Avatar</Form.Label>
-                    <select className='form-select' id="avatar">
+                    <Form.Select className='form-select' name="avatar" onChange={handleInputChange}>
                         <option value={cat}>Cat</option>
                         <option value={koala}>Koala</option>
                         <option value={penguin}>Penguin</option>
-                    </select>
+                    </Form.Select>
                     <Form.Control.Feedback type='invalid'>Avatar is required!</Form.Control.Feedback>
                 </Form.Group>
 
