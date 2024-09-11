@@ -194,8 +194,8 @@ export default function Game() {
             )}
             </div>   
             <div>
-                <Hand cards={playerHand} owner={"Player's Hand"} handValue={playerHandValue}/>
                 <Hand cards={dealerHand} owner={"Dealer's Hand"} handValue={dealerHandValue}/>
+                <Hand cards={playerHand} owner={"Player's Hand"} handValue={playerHandValue}/>
                 <Hand cards={playerSpecialHand} owner={"Player's Special Hand"} handValue={playerSpecialHand.length}/>
             </div>
         </>
