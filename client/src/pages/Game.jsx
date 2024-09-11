@@ -42,7 +42,8 @@ export default function Game() {
         // const gameSavingCards = ["charizard", "dark magician", "abomb", "goojf", "babe ruth"];
 
         const card = getRandomCard();
-        if (alternateHandCards.some(substring => card.value.includes(substring))) { // needs work still
+        console.log(card);
+        if (alternateHandCards.some(substring => card.valueOfCard.includes(substring))) { // needs work still
             const newSpecialHand = [...playerSpecialHand, card];
             setPlayerSpecialHand(newSpecialHand);
         } else {
@@ -56,7 +57,7 @@ export default function Game() {
                 setPlayerCanHit(false);
             }
             //     //lose
-            //     if (gameSavingCards.some(substring => card.value.includes(substring))) {
+            //     if (gameSavingCards.some(substring => card.valueOfCard.includes(substring))) {
             //     //player must play cards
             //     } else {
             //         handleGameOver({type: "dealer", message: "Player busts, dealer wins"})
@@ -71,7 +72,7 @@ export default function Game() {
         if (dealerCanHit) {
             let card = getRandomCard(); 
             //will need logic for what cards the dealer can and cannot have
-            while (alternateHandCards.some(substring => card.value.includes(substring))) {
+            while (alternateHandCards.some(substring => card.valueOfCard.includes(substring))) {
                 card = getRandomCard();
             }
             const newDealerHand = [...dealerHand, card];
@@ -104,15 +105,15 @@ export default function Game() {
         let aceCount = 0;
         hand.forEach((card) => {
             if (card.card === 'tarot') {
-                value = card.value;
+                value = card.valueOfCard;
                 return value;
-            } else if (card.value === "jack" || card.value === "queen" || card.value === "king") {
+            } else if (card.valueOfCard === "jack" || card.valueOfCard === "queen" || card.valueOfCard === "king") {
                 value += 10;
-            } else if (card.value === "ace") {
+            } else if (card.valueOfCard === "ace") {
                 aceCount++;
                 value += 11;
             } else {
-                value += parseInt(card.value)
+                value += parseInt(card.valueOfCard)
             }
         });
         while (value > 21 && aceCount > 0) {
