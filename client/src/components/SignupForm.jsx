@@ -85,6 +85,7 @@ const SignupForm = () => {
                 <Form.Group>
                     <Form.Label htmlFor='avatar'>Choose your Avatar</Form.Label>
                     <Form.Select className='form-select' name="avatar" onChange={handleInputChange}>
+                        <option>Choose an Avatar</option>
                         <option value={cat}>Cat</option>
                         <option value={koala}>Koala</option>
                         <option value={penguin}>Penguin</option>
