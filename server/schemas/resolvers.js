@@ -4,8 +4,11 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 const resolvers = {
     Query: {
         me: async (parent, args, context) => {
+            // console.log(context);
+            // console.log(args);
             if (context.user) {
                 return User.findOne({ _id: context.user._id })
+                    .select('-__v -password')
                     .populate('wins')
             }
             throw AuthenticationError;
@@ -35,6 +38,7 @@ const resolvers = {
             }
 
             const token = signToken(user);
+            console.log("Token: ", token);
             return { token, user };
         },
         addWin: async (parent, { id }) => {

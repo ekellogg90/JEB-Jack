@@ -14,8 +14,8 @@ module.exports = {
   // function for our authenticated routes
   authMiddleware: function ({ req }) {
     // allows token to be sent via  req.query or headers
-    let token = req.query.token || req.headers.authorization;
-
+    let token = req.body.token || req.query.token || req.headers.authorization;
+    console.log("Request: ", req);
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();
@@ -37,7 +37,7 @@ module.exports = {
   },
   signToken: function ({ username, _id }) {
     const payload = { username, _id };
-
+    console.log("Payload: ", payload);
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
