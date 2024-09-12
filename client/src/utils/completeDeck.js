@@ -30,6 +30,6 @@ const uniqueCards = [{card: "mtg", valueOfCard: "black lotus", tooltip: "adds 1-
 {card: "monopoly", valueOfCard: "goojf", tooltip: "removes last card you drew"}, {card: "baseball", valueOfCard: "babe ruth", tooltip: "get rid of one of yours or the dealers cards"}];
 
 //complete deck  
-const completeDeck = [...standardCards, ...unoCards, ...tarotCards, ...mahjongTiles, ...uniqueCards];
+const completeDeck = [...standardCards, ...unoCards, ...tarotCards, ...mahjongTiles, ...uniqueCards, ...uniqueCards];
 
 export {completeDeck, uniqueCards};
