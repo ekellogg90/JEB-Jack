@@ -1,4 +1,4 @@
-import completeDeck from '../utils/completeDeck';
+// import completeDeck from '../utils/completeDeck';
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import Hand from '../components/Hand';
@@ -6,6 +6,7 @@ import SpecialHand from '../components/SpecialHand';
 import bjTable from '../assets/bjtable.jpg';
 import { useGameContext } from '../utils/GlobalState';
 import { 
+    UPDATE_DECK,
     ADD_PLAYER_CARD,
     REMOVE_PLAYER_CARD,
     CLEAR_PLAYER_HAND,
@@ -24,6 +25,8 @@ import {
     GAME_OVER,
     RESET_GAME,
     START_GAME,
+    SWAP_HANDS,
+    DEALER_DRAW_TWO,
 } from "../utils/actions";
 
 export default function Game() {
@@ -35,7 +38,8 @@ export default function Game() {
         backgroundImage: `url(${bjTable})`,
         backgroundSize: "100% 100%",
     };
-    const [gameDeck, setGameDeck] = useState(completeDeck);
+
+    // const [gameDeck, setGameDeck] = useState(completeDeck);
 
     // const [playerHand, setPlayerHand] = useState([]);
     // const [playerSpecialHand, setPlayerSpecialHand] = useState([]);
@@ -55,18 +59,22 @@ export default function Game() {
 
     //get random card and remove it from the deck and update the state
     const getRandomCard = (noSpecials) => {
-        let randIndex = Math.floor(Math.random() * gameDeck.length);
-        let card = gameDeck[randIndex];
+        let randIndex = Math.floor(Math.random() * state.gameDeck.length);
+        let card = state.gameDeck[randIndex];
         if (noSpecials) {
             while (alternateHandCards.some(substring => card.valueOfCard.includes(substring))) {
-                randIndex = Math.floor(Math.random() * gameDeck.length);
-                card = gameDeck[randIndex];
+                randIndex = Math.floor(Math.random() * state.gameDeck.length);
+                card = state.gameDeck[randIndex];
             }
         }
-        const updatedDeck = gameDeck.filter((_, index) => index !== randIndex);
+        const updatedDeck = state.gameDeck.filter((_, index) => index !== randIndex);
 
         //deck update
-        setGameDeck(updatedDeck);
+        dispatch({
+            type: UPDATE_DECK,
+            deck: updatedDeck,
+        });
+        // setGameDeck(updatedDeck);
 
         //rand card
         return card;
@@ -84,14 +92,14 @@ export default function Game() {
         }
 
 
-        playerCards.map((card) => {
-            if (card.card === 'tarot') {
-                // setPlayerCanHit(false);
-                dispatch({
-                    type: TOGGLE_PLAYER_CAN_HIT
-                });
-            }
-        });
+        // playerCards.map((card) => {
+        //     if (card.card === 'tarot') {
+        //         // setPlayerCanHit(false);
+        //         dispatch({
+        //             type: TOGGLE_PLAYER_CAN_HIT
+        //         });
+        //     }
+        // });
 
         // Check for tarot cards and calculate playerHandValue accordingly
         let newPlayerValue = 0;
@@ -151,12 +159,12 @@ export default function Game() {
                 score: newHandValue,
             });
 
-            if (newHandValue >= 21 || card.card === 'tarot') {
-                // setPlayerCanHit(false);
-                dispatch({
-                    type: TOGGLE_PLAYER_CAN_HIT,
-                });
-            }
+            // if (newHandValue >= 21 || card.card === 'tarot') {
+            //     // setPlayerCanHit(false);
+            //     dispatch({
+            //         type: TOGGLE_PLAYER_CAN_HIT,
+            //     });
+            // }
         }
     };
 

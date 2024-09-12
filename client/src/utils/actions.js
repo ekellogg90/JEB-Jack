@@ -1,3 +1,4 @@
+export const UPDATE_DECK = "UPDATE_DECK";
 export const ADD_PLAYER_CARD = "ADD_PLAYER_CARD";
 export const REMOVE_PLAYER_CARD = "REMOVE_PLAYER_CARD";
 export const CLEAR_PLAYER_HAND = "CLEAR_PLAYER_HAND";
@@ -16,3 +17,5 @@ export const SET_RESULT = "SET_RESULT";
 export const GAME_OVER = "GAME_OVER";
 export const RESET_GAME = "RESET_GAME";
 export const START_GAME = "START_GAME";
+export const SWAP_HANDS = "SWAP_HANDS";
+export const DEALER_DRAW_TWO = "DEALER_DRAW_TWO";
