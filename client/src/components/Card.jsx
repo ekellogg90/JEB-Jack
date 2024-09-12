@@ -37,7 +37,9 @@ const Card = ({ deckName, cardIndex }) => {
 
     const card = cards[cardIndex];
 
-    return <div>{card}</div>;
+    return (
+        <div>{card}</div>
+    );
 };
 
 export default Card;
