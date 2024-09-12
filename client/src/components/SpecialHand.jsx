@@ -48,7 +48,7 @@ export default function SpecialHand({cards}) {
         <h2 className="text-white fs-2 mt-3">Player's Special Hand</h2>
         <div>
             {cardIMGarr.map((card, index) => (
-                <div key={index} title={card.tooltip} onClick={(e) => handleSpecialCards(cards[index].valueOfCard, e)}>
+                <div key={index} title={cards[index].tooltip} onClick={(e) => handleSpecialCards(cards[index].valueOfCard, e)}>
                     <Card
                     deckName={card.deckName}
                     cardIndex={card.cardIndex}
