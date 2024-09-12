@@ -18,6 +18,7 @@ import {
     GAME_OVER,
     RESET_GAME,
     START_GAME,
+    FILL_SPECIAL_HAND,
 } from "../utils/actions";
 
 export default function Game() {
@@ -228,9 +229,16 @@ export default function Game() {
         };
     }, [state.playerHand, state.dealerHand, state.gameOver]);
 
+    const cheat = () => {
+        dispatch({
+            type: FILL_SPECIAL_HAND,
+        });
+    }
+
     return (        
         <>
         <div className='card align-items-center justify-content-center' style={cardStyle}> 
+            {/* <Button onClick={cheat}>Cheat</Button> */}
             <div>
                 <Hand cards={state.dealerHand} owner={"Dealer's Hand"} handValue={state.dealerHandValue}/>
                 {state.gameOver && (<div><h2>{state.result.message}</h2></div>)}

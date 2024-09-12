@@ -32,4 +32,4 @@ const uniqueCards = [{card: "mtg", valueOfCard: "black lotus", tooltip: "adds 1-
 //complete deck  
 const completeDeck = [...standardCards, ...unoCards, ...tarotCards, ...mahjongTiles, ...uniqueCards];
 
-export default completeDeck;
+export {completeDeck, uniqueCards};
