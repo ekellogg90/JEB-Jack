@@ -26,13 +26,11 @@ export const SIGNUP_USER = gql`
 `;
 
 export const ADD_WIN = gql`
-    mutation addWin($id: ID!) {
-        addWin(id: $id) {
-            user {
-                _id
-                username
-                wins
-            }
+    mutation addWin($_id: ID) {
+        addWin(_id: $_id) {
+            _id
+            username
+            wins
         }
     }
 `;

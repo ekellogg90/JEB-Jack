@@ -41,9 +41,9 @@ const resolvers = {
             // console.log("Token: ", token);
             return { token, user };
         },
-        addWin: async (parent, { id }) => {
+        addWin: async (parent, { _id }) => {
             return User.findOneAndUpdate(
-                { _id: id },
+                { _id: _id },
                 { $inc: { wins: 1 } },
                 { new: true }
             )

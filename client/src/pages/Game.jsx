@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import Hand from '../components/Hand';
 import SpecialHand from '../components/SpecialHand';
+import calcHandValue from '../utils/calcHandValue';
 import bjTable from '../assets/bjtable.jpg';
+import { useMutation, useQuery } from '@apollo/client';
+import { ADD_WIN } from '../utils/mutations';
+import { GET_ME } from '../utils/queries';
 import { useGameContext } from '../utils/GlobalState';
 import { 
     UPDATE_DECK,
@@ -23,6 +27,10 @@ import {
 
 export default function Game() {
     const [state, dispatch] = useGameContext();
+
+    const [addWin, { error }] = useMutation(ADD_WIN);
+    const { loading, data } = useQuery(GET_ME);
+    const userData = data?.me || {};
 
     const cardStyle = {
         width: '100%',
@@ -187,30 +195,13 @@ export default function Game() {
         }
     };
 
-    const calcHandValue = (hand) => {
-        let value = 0;
-        let aceCount = 0;
-        hand.forEach((card) => {
-            if (card.card === 'tarot') {
-                value = parseInt(card.valueOfCard);
-                return value;
-            } else if (card.valueOfCard === "jack" || card.valueOfCard === "queen" || card.valueOfCard === "king") {
-                value += 10;
-            } else if (card.valueOfCard === "ace") {
-                aceCount++;
-                value += 11;
-            } else {
-                value += parseInt(card.valueOfCard);
-            }
-        });
-        while (value > 21 && aceCount > 0) {
-            value -= 10;
-            aceCount--;
-        }
-        return value;
-    };
-
     const handleGameOver = (result) => {
+        if (result.type === 'win') {
+            const _id = userData._id;
+            addWin({
+                variables: {_id}
+            });
+        }
         dispatch({
             type: GAME_OVER,
             result: result,
