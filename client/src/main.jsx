@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage.jsx';
 import LeaderBoard from './pages/LeaderBoard.jsx';
 import Game from './pages/Game.jsx';
 import Profile from './pages/Profile.jsx';
+import Tutorial from './pages/Tutorial.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         path: 'profile',
         element: <Profile />,
       },
+      {
+        path: 'tutorial',
+        element: <Tutorial />
+      }
     ]
   }
 ])

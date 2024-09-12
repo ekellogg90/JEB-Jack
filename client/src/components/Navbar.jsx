@@ -23,6 +23,13 @@ const AppNavbar = () => {
               <Nav.Link as={Link} to='/leader'>
                 Leaderboard
               </Nav.Link>
+              <Nav.Link as={Link} to='/tutorial'>
+                Tutorial
+              </Nav.Link>
+              <Nav.Link as={Link} to='/'>
+                Home
+              </Nav.Link>
+              
               {/* if user is logged in show profile and logout */}
               {Auth.loggedIn() ? (
                 <>
