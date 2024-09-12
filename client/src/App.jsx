@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import { GameProvider } from './utils/GlobalState';
 import { setContext } from '@apollo/client/link/context';
+import Footer from './components/footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -33,6 +34,7 @@ function App() {
       <GameProvider>
         <Navbar />
         <Outlet />
+        <Footer />
       </GameProvider>
     </ApolloProvider>
   )
