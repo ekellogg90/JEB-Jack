@@ -19,7 +19,7 @@ const unoCards = [{card: "uno", valueOfCard: "1"}, {card: "uno", valueOfCard: "2
 {card: "uno", valueOfCard: "6"}, {card: "uno", valueOfCard: "7"}, {card: "uno", valueOfCard: "8"},
 {card: "uno", valueOfCard: "9"}, {card: "uno", valueOfCard: "green +2", tooltip: "dealer must draw two"}, {card: "uno", valueOfCard: "red +2", tooltip: "dealer must draw two"},
 {card: "uno", valueOfCard: "green reverse", tooltip: "switch hands with the dealer"}, {card: "uno", valueOfCard: "red reverse", tooltip: "switch hands with the dealer"},
-{card: "uno", valueOfCard: "green skip", tooltip: "dealer draws one"}, {card: "uno", valueOfCard: "yellow skip", tooltip: "dealer draws one"},]
+{card: "uno", valueOfCard: "green skip", tooltip: "dealer can no longer draw cards"}, {card: "uno", valueOfCard: "yellow skip", tooltip: "dealer can no longer draw cards"},]
 
 //tarot
 const tarot = ["tarot"];
