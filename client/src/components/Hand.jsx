@@ -9,7 +9,7 @@ export default function regularHand({cards,owner,handValue}) {
     const cardIMGarr = cardIMGInfo(cards);
     return (
     <div>
-        <h2>{owner}: {handValue}</h2>
+        <h2 className="text-white fs-2">{owner}: {handValue}</h2>
         <Container>
             <Row>
                 {cardIMGarr.map((card, index) => (
