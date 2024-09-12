@@ -3,8 +3,15 @@ import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import Hand from '../components/Hand';
 import SpecialHand from '../components/SpecialHand';
+import bjTable from '../assets/bjtable.jpg';
 
 export default function Game() {
+    const cardStyle = {
+        width: '100%',
+        height: '85vh',
+        backgroundImage: `url(${bjTable})`,
+        backgroundSize: "100% 100%",
+    };
     const [gameDeck, setGameDeck] = useState(completeDeck);
 
     const [playerHand, setPlayerHand] = useState([]);
@@ -57,27 +64,14 @@ export default function Game() {
             }
         });
 
-        if (playerCards[0].card === 'tarot') {
-            if (playerCards[1].card === 'tarot') {
-                const val1 = parseInt(playerCards[0].valueOfCard);
-                const val2 = parseInt(playerCards[1].valueOfCard);
-                const newPlayerValue = (val1 > val2) ? (val1) : (val2);
-                setPlayerHandValue(newPlayerValue);
-            } else {
-                const newPlayerValue = parseInt(playerCards[0].valueOfCard);
-                setPlayerHandValue(newPlayerValue);
-            }
-        } else {
-            const newPlayerValue = calcHandValue(playerCards);
-            setPlayerHandValue(newPlayerValue);
-        }
-
-        
+        // Get each hand's score
+        const newPlayerValue = calcHandValue(playerCards);
         const newDealerValue = calcHandValue([dealerCard]);
         
         // Set all state variables
         setPlayerHand(playerCards);
         setDealerHand([dealerCard]);
+        setPlayerHandValue(newPlayerValue);
         setDealerHandValue(newDealerValue);
     };
 
@@ -134,7 +128,7 @@ export default function Game() {
         let aceCount = 0;
         hand.forEach((card) => {
             if (card.card === 'tarot') {
-                value = parseInt(card.valueOfCard);
+                value = card.valueOfCard;
                 return value;
             } else if (card.valueOfCard === "jack" || card.valueOfCard === "queen" || card.valueOfCard === "king") {
                 value += 10;
@@ -142,7 +136,7 @@ export default function Game() {
                 aceCount++;
                 value += 11;
             } else {
-                value += parseInt(card.valueOfCard);
+                value += parseInt(card.valueOfCard)
             }
         });
         while (value > 21 && aceCount > 0) {
@@ -209,22 +203,25 @@ export default function Game() {
 
     return (        
         <>
+        <div className='card align-items-center justify-content-center' style={cardStyle}>
             <div>
-            {gameOver && (<div><h2>{result.message}</h2></div>)}
+
+            </div>   
+            <div>
+                <Hand cards={dealerHand} owner={"Dealer's Hand"} handValue={dealerHandValue}/>
+                {gameOver && (<div><h2>{result.message}</h2></div>)}
             {!newGame ? (
                 <>
-                    <Button onClick={dealCardToPlayer} variant='success'disabled={!playerCanHit}>Hit</Button>
-                    <Button onClick={playerStand} variant='danger'>Stand</Button>
+                    <Button className='mx-5 fw-bold' onClick={dealCardToPlayer} variant='primary' size='lg' disabled={!playerCanHit}>Hit</Button>
+                    <Button className='fw-bold' onClick={playerStand} variant='danger' size='lg'>Stand</Button>
                 </>
             ) : (
                 <Button onClick={resetGame}>Reset</Button>
             )}
-            </div>   
-            <div>
-                <Hand cards={dealerHand} owner={"Dealer's Hand"} handValue={dealerHandValue}/>
                 <Hand cards={playerHand} owner={"Player's Hand"} handValue={playerHandValue}/>
                 <SpecialHand cards={playerSpecialHand} />
             </div>
+        </div>
         </>
     );
 }
