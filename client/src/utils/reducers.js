@@ -19,9 +19,11 @@ import {
     RESET_GAME,
     START_GAME,
     SWAP_HANDS,
+    SWAP_CARDS,
     DEALER_DRAW_TWO,
 } from "./actions";
 import completeDeck from '../utils/completeDeck';
+import calcHandValue from '../utils/calcHandValue';
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -39,13 +41,16 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 playerHand: state.playerHand.filter((card) => 
-                    (card.card !== action.card.card && card.valueOfCard !== action.card.valueOfCard))
+                    (card !== action.card)),
+                playerHandValue: calcHandValue(state.playerHand.filter((card) => 
+                    (card !== action.card))),
             };
         case CLEAR_PLAYER_HAND:
             return {
                 ...state,
                 playerHand: [],
                 playerHandValue: 0,
+                playerCanHit: true,
             };
         case ADD_DEALER_CARD:
             return {
@@ -56,13 +61,16 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 dealerHand: state.dealerHand.filter((card) => 
-                    (card.card !== action.card.card && card.valueOfCard !== action.card.valueOfCard))
+                    (card !== action.card)),
+                dealerHandValue: calcHandValue(state.dealerHand.filter((card) => 
+                    (card !== action.card))),
             };
         case CLEAR_DEALER_HAND:
             return {
                 ...state,
                 dealerHand: [],
                 dealerHandValue: 0,
+                dealerCanHit: true,
             };
         case ADD_SPECIAL_CARD:
             return {
@@ -146,6 +154,20 @@ export const reducer = (state, action) => {
                 dealerHand: [...state.playerHand],
                 playerHandValue: state.dealerHandValue,
                 dealerHandValue: state.playerHandValue,
+                playerCanHit: state.dealerCanHit,
+                dealerCanHit: state.playerCanHit,
+            }
+        case SWAP_CARDS:
+            return {
+                ...state,
+                playerHand: [...state.playerHand.filter((card) => 
+                    (card !== action.playerCard)), action.dealerCard],
+                dealerHand: [...state.dealerHand.filter((card) => 
+                    (card !== action.dealerCard)), action.playerCard],
+                playerHandValue: calcHandValue([...state.playerHand.filter((card) => 
+                    (card !== action.playerCard)), action.dealerCard]),
+                dealerHandValue: calcHandValue([...state.dealerHand.filter((card) => 
+                    (card !== action.dealerCard)), action.playerCard]),  
             }
         case DEALER_DRAW_TWO:
             return {
