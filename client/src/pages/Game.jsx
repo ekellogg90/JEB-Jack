@@ -1,6 +1,6 @@
 import completeDeck from '../utils/completeDeck';
 import { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import Hand from '../components/Hand';
 import SpecialHand from '../components/SpecialHand';
 import bjTable from '../assets/bjtable.jpg';
@@ -314,10 +314,7 @@ export default function Game() {
 
     return (        
         <>
-        <div className='card align-items-center justify-content-center' style={cardStyle}>
-            <div>
-
-            </div>   
+        <div className='card align-items-center justify-content-center' style={cardStyle}> 
             <div>
                 <Hand cards={state.dealerHand} owner={"Dealer's Hand"} handValue={state.dealerHandValue}/>
                 {state.gameOver && (<div><h2>{state.result.message}</h2></div>)}
@@ -329,8 +326,16 @@ export default function Game() {
             ) : (
                 <Button onClick={resetGame}>Reset</Button>
             )}
-                <Hand cards={state.playerHand} owner={"Player's Hand"} handValue={state.playerHandValue}/>
-                <SpecialHand cards={state.playerSpecialHand} />
+            <Container>
+                <Row>
+                    <Col>
+                        <Hand cards={state.playerHand} owner={"Player's Hand"} handValue={state.playerHandValue}/>
+                    </Col>
+                    <Col>
+                        <SpecialHand cards={state.playerSpecialHand} />
+                    </Col>
+                </Row>
+            </Container>
             </div>
         </div>
         </>

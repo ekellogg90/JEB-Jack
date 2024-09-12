@@ -34,14 +34,14 @@ async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath
                     const card = (
                         <Canvas
                         key={`${row}-${col}`}
-                        height={(cardHeight -500)}
-                        width={(cardWidth -350)}
+                        height={(cardHeight -571)}
+                        width={(cardWidth -400)}
                         draw={(context) => {
                             context.clearRect(0, 0, cardWidth, cardHeight); // makes canvas 
                             context.drawImage(
                             ss,
                             x, y, cardWidth, cardHeight, // source sprite
-                            0, 0, (cardWidth -350), (cardHeight -500)  // destination canvas
+                            0, 0, (cardWidth -400), (cardHeight -571)  // destination canvas
                             );
                         }}
                         />
