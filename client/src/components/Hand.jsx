@@ -13,9 +13,8 @@ export default function regularHand({cards,owner,handValue}) {
         <Container>
             <Row>
                 {cardIMGarr.map((card, index) => (
-                <Col>
+                <Col key={index}>
                 <Card 
-                    key={index}
                     deckName={card.deckName}
                     cardIndex={card.cardIndex}
                 />
