@@ -29,7 +29,7 @@ From the homepage, you can click on 'Leaderboard' to see which players have the 
 
 UNO - Numbered cards give respective values to players hand. The skip card skips the dealers turn making them unable to draw any more cards, the revserse cards switch your hand with the dealers, and the plus two cards make the dealer draw two.
 
-Tarot - If you draw a tarot card that cards value is now the value of your hand and you can no longer draw
+Tarot - If you draw a tarot card that cards value is now the value of your hand and you can no longer draw, if you have two tarot cards it will use the higher valued one
 
 Majong - The number of pin on the tile are the value added to your hand
 

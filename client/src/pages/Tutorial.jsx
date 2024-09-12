@@ -40,8 +40,8 @@ const Tutorial = () => {
         <h2 style={styles.sectionHeader}>Main Rules</h2>
         <p style={styles.paragraph}>
           Get to 21, easy. easy? If you draw a tarot card, that card's value is
-          now your score for that hand. All Uno and Mahjong have the value they
-          display.
+          now your score for that hand, if you have two tarot cards it will take the higher valued one. 
+          All Uno and Mahjong have the value they display.
         </p>
       </div>
 
