@@ -21,9 +21,11 @@ import {
     SWAP_HANDS,
     SWAP_CARDS,
     DEALER_DRAW_TWO,
+    FILL_SPECIAL_HAND,
 } from "./actions";
-import completeDeck from '../utils/completeDeck';
+import {completeDeck, uniqueCards} from '../utils/completeDeck';
 import calcHandValue from '../utils/calcHandValue';
+
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -174,6 +176,11 @@ export const reducer = (state, action) => {
                 ...state,
                 dealerHand: [...state.dealerHand, action.card1, action.card2],
             };
+        case FILL_SPECIAL_HAND:
+            return {
+                ...state,
+                playerSpecialHand: [...uniqueCards]
+            }
         default:
             return state;
     }

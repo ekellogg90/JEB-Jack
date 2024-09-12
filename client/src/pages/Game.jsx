@@ -29,6 +29,7 @@ import {
     SWAP_HANDS,
     SWAP_CARDS,
     DEALER_DRAW_TWO,
+    FILL_SPECIAL_HAND,
 } from "../utils/actions";
 
 export default function Game() {
@@ -301,15 +302,14 @@ export default function Game() {
 
     const cheat = () => {
         dispatch({
-            type: ADD_SPECIAL_CARD,
-            card: {card: "ygo", valueOfCard: "dark magician", tooltip: "swap a card from your hand and the dealers"},
+            type: FILL_SPECIAL_HAND,
         });
     }
 
     return (        
         <>
         <div className='card align-items-center justify-content-center' style={cardStyle}> 
-            <Button onClick={cheat}>Cheat</Button>
+            {/* <Button onClick={cheat}>Cheat</Button> */}
             <div>
                 <Hand cards={state.dealerHand} owner={"Dealer's Hand"} handValue={state.dealerHandValue}/>
                 {state.gameOver && (<div><h2>{state.result.message}</h2></div>)}

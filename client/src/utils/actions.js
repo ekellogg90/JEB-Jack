@@ -20,3 +20,4 @@ export const START_GAME = "START_GAME";
 export const SWAP_HANDS = "SWAP_HANDS";
 export const SWAP_CARDS = "SWAP_CARDS";
 export const DEALER_DRAW_TWO = "DEALER_DRAW_TWO";
+export const FILL_SPECIAL_HAND = "FILL_SPECIAL_HAND";

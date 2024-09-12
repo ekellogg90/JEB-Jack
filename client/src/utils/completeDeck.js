@@ -44,4 +44,4 @@ const completeDeck = [...standardCards, ...unoCards, ...tarotCards, ...mahjongTi
 
 //maybe make dealer deck that exludes some complicated cards to make the dealer use
 
-export default completeDeck;
+export {completeDeck, uniqueCards};
