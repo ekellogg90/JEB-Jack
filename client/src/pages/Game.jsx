@@ -92,14 +92,14 @@ export default function Game() {
         }
 
 
-        // playerCards.map((card) => {
-        //     if (card.card === 'tarot') {
-        //         // setPlayerCanHit(false);
-        //         dispatch({
-        //             type: TOGGLE_PLAYER_CAN_HIT
-        //         });
-        //     }
-        // });
+        playerCards.map((card) => {
+            if (card.card === 'tarot') {
+                // setPlayerCanHit(false);
+                dispatch({
+                    type: TOGGLE_PLAYER_CAN_HIT
+                });
+            }
+        });
 
         // Check for tarot cards and calculate playerHandValue accordingly
         let newPlayerValue = 0;
@@ -159,12 +159,12 @@ export default function Game() {
                 score: newHandValue,
             });
 
-            // if (newHandValue >= 21 || card.card === 'tarot') {
-            //     // setPlayerCanHit(false);
-            //     dispatch({
-            //         type: TOGGLE_PLAYER_CAN_HIT,
-            //     });
-            // }
+            if (newHandValue >= 21 || card.card === 'tarot') {
+                // setPlayerCanHit(false);
+                dispatch({
+                    type: TOGGLE_PLAYER_CAN_HIT,
+                });
+            }
         }
     };
 
