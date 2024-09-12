@@ -4,16 +4,6 @@ const valueOfCards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "que
 
 const standardCards = cards.flatMap((card) => valueOfCards.map((valueOfCard) => ({card, valueOfCard})));
 
-//uno
-/* const unoCards = [{card: "uno", valueOfCard: "green 1"}, {card: "uno", valueOfCard: "yellow 2"},
-{card: "uno", valueOfCard: "blue 3"}, {card: "uno", valueOfCard: "green 4"}, {card: "uno", valueOfCard: "blue 5"},
-{card: "uno", valueOfCard: "green 6"}, {card: "uno", valueOfCard: "red 7"}, {card: "uno", valueOfCard: "blue 8"},
-{card: "uno", valueOfCard: "yellow 9"}, {card: "uno", valueOfCard: "green +2"}, {card: "uno", valueOfCard: "red +2"},
-{card: "uno", valueOfCard: "green reverse"}, {card: "uno", valueOfCard: "red reverse"},
-{card: "uno", valueOfCard: "green skip"}, {card: "uno", valueOfCard: "yellow skip"},]
-WITH COLORS^
-*/
-
 const unoCards = [{card: "uno", valueOfCard: "1"}, {card: "uno", valueOfCard: "2"},
 {card: "uno", valueOfCard: "3"}, {card: "uno", valueOfCard: "4"}, {card: "uno", valueOfCard: "5"},
 {card: "uno", valueOfCard: "6"}, {card: "uno", valueOfCard: "7"}, {card: "uno", valueOfCard: "8"},
@@ -39,9 +29,7 @@ const uniqueCards = [{card: "mtg", valueOfCard: "black lotus", tooltip: "adds 1-
 {card: "ygo", valueOfCard: "dark magician", tooltip: "swap a card from your hand and the dealers"}, {card: "colin", valueOfCard: "abomb", tooltip: "resets game"},
 {card: "monopoly", valueOfCard: "goojf", tooltip: "removes last card you drew"}, {card: "baseball", valueOfCard: "babe ruth", tooltip: "get rid of one of yours or the dealers cards"}];
 
-//complete deck   NOTE: did not add 2 standard decks, may need to change later
+//complete deck  
 const completeDeck = [...standardCards, ...unoCards, ...tarotCards, ...mahjongTiles, ...uniqueCards];
-
-//maybe make dealer deck that exludes some complicated cards to make the dealer use
 
 export default completeDeck;
