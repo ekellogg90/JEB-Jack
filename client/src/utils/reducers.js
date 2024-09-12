@@ -1,4 +1,5 @@
 import { 
+    UPDATE_DECK,
     ADD_PLAYER_CARD,
     REMOVE_PLAYER_CARD,
     CLEAR_PLAYER_HAND,
@@ -17,10 +18,18 @@ import {
     GAME_OVER,
     RESET_GAME,
     START_GAME,
+    SWAP_HANDS,
+    DEALER_DRAW_TWO,
 } from "./actions";
+import completeDeck from '../utils/completeDeck';
 
 export const reducer = (state, action) => {
     switch (action.type) {
+        case UPDATE_DECK:
+            return {
+                ...state,
+                gameDeck: [...action.deck]
+            }
         case ADD_PLAYER_CARD:
             return {
                 ...state,
@@ -36,6 +45,7 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 playerHand: [],
+                playerHandValue: 0,
             };
         case ADD_DEALER_CARD:
             return {
@@ -52,6 +62,7 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 dealerHand: [],
+                dealerHandValue: 0,
             };
         case ADD_SPECIAL_CARD:
             return {
@@ -62,7 +73,7 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 playerSpecialHand: state.playerSpecialHand.filter((card) => 
-                    (card.card !== action.card.card && card.valueOfCard !== action.card.valueOfCard))
+                    (card.valueOfCard !== action.card)),
             };
         case TOGGLE_PLAYER_CAN_HIT:
             return {
@@ -109,6 +120,7 @@ export const reducer = (state, action) => {
         case RESET_GAME:
             return {
                 ...state,
+                gameDeck: [...completeDeck],
                 playerHand: [],
                 dealerHand: [],
                 playerCanHit: true,
@@ -127,6 +139,19 @@ export const reducer = (state, action) => {
                 playerHandValue: action.playerHandValue,
                 dealerHandValue: action.dealerHandValue,
             }
+        case SWAP_HANDS:
+            return {
+                ...state,
+                playerHand: [...state.dealerHand],
+                dealerHand: [...state.playerHand],
+                playerHandValue: state.dealerHandValue,
+                dealerHandValue: state.playerHandValue,
+            }
+        case DEALER_DRAW_TWO:
+            return {
+                ...state,
+                dealerHand: [...state.dealerHand, action.card1, action.card2],
+            };
         default:
             return state;
     }
