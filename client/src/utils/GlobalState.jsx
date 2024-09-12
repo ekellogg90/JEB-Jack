@@ -6,10 +6,16 @@ const { Provider } = GameContext;
 
 const GameProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useReducer(reducer, {
-      deck: [],
       playerHand: [],
-      playerHandSpecial: [],
+      playerSpecialHand: [],
+      playerCanHit: true,
+      playerHandValue: 0,
       dealerHand: [],
+      dealerHandValue: 0,
+      dealerCanHit: true,
+      gameOver: false,
+      newGame: false,
+      result: {type: '', message: ''},
     });
   
     return <Provider value={[state, dispatch]} {...props} />;
