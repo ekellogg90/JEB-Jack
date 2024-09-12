@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import Hand from '../components/Hand';
 import SpecialHand from '../components/SpecialHand';
+import calcHandValue from '../utils/calcHandValue';
 import bjTable from '../assets/bjtable.jpg';
 import { useGameContext } from '../utils/GlobalState';
 import { 
@@ -26,6 +27,7 @@ import {
     RESET_GAME,
     START_GAME,
     SWAP_HANDS,
+    SWAP_CARDS,
     DEALER_DRAW_TWO,
 } from "../utils/actions";
 
@@ -235,29 +237,6 @@ export default function Game() {
         }
     };
 
-    const calcHandValue = (hand) => {
-        let value = 0;
-        let aceCount = 0;
-        hand.forEach((card) => {
-            if (card.card === 'tarot') {
-                value = parseInt(card.valueOfCard);
-                return value;
-            } else if (card.valueOfCard === "jack" || card.valueOfCard === "queen" || card.valueOfCard === "king") {
-                value += 10;
-            } else if (card.valueOfCard === "ace") {
-                aceCount++;
-                value += 11;
-            } else {
-                value += parseInt(card.valueOfCard);
-            }
-        });
-        while (value > 21 && aceCount > 0) {
-            value -= 10;
-            aceCount--;
-        }
-        return value;
-    };
-
     const handleGameOver = (result) => {
         // setGameOver(true);
         // setResult(result);
@@ -320,9 +299,17 @@ export default function Game() {
         // };
     }, [state.playerHand, state.dealerHand, state.gameOver]);
 
+    const cheat = () => {
+        dispatch({
+            type: ADD_SPECIAL_CARD,
+            card: {card: "ygo", valueOfCard: "dark magician", tooltip: "swap a card from your hand and the dealers"},
+        });
+    }
+
     return (        
         <>
         <div className='card align-items-center justify-content-center' style={cardStyle}> 
+            <Button onClick={cheat}>Cheat</Button>
             <div>
                 <Hand cards={state.dealerHand} owner={"Dealer's Hand"} handValue={state.dealerHandValue}/>
                 {state.gameOver && (<div><h2>{state.result.message}</h2></div>)}
