@@ -11,12 +11,11 @@ export default function HomePage() {
     };
     return (        
     <>
-        <div className="container">
-            <h1 className="text-center mb-2 mt-2 text-primary">
+        <div>
+            <div className="card align-items-center justify-content-center" style={cardStyle}>
+            <h1 className="text-center mb-5 text-white">
                 Welcome to JEB Jack
             </h1>
-
-            <div className="card align-items-center justify-content-center" style={cardStyle}>
                 <Link to='/game'>
                     <Button type='button' variant='danger'>
                         PLAY GAME
