@@ -27,7 +27,23 @@ From the homepage, you can click on 'Leaderboard' to see which players have the 
 
 ## Special Cards
 
+UNO - Numbered cards give respective values to players hand. The skip card skips the dealers turn making them unable to draw any more cards, the revserse cards switch your hand with the dealers, and the plus two cards make the dealer draw two.
 
+Tarot - If you draw a tarot card that cards value is now the value of your hand and you can no longer draw
+
+Majong - The number of pin on the tile are the value added to your hand
+
+Charizard - Gets rid of (burns) dealers cards
+
+Black Lotus - Gives the player 1-3 depending on what will be most useful to them
+
+Dark Magician - Switch one of your cards with the dealers of your choosing
+
+Babe Ruth - Get rid of one of yours or the dealers cards
+
+Abomb - Reset the game
+
+Get Out of Jail Free - Removes last drawn card
 
 ## Credits
 
