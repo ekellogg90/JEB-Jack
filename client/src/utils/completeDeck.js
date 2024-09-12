@@ -37,7 +37,7 @@ const mahjongTiles = mahjong.flatMap((card) => mValues.map((valueOfCard) => ({ca
 //uniques
 const uniqueCards = [{card: "mtg", valueOfCard: "black lotus", tooltip: "adds 1-3 to your score to benefit you most"}, {card: "pokemon", valueOfCard: "charizard", tooltip: "burns away dealers cards"},
 {card: "ygo", valueOfCard: "dark magician", tooltip: "swap a card from your hand and the dealers"}, {card: "colin", valueOfCard: "abomb", tooltip: "resets game"},
-{card: "monopoly", valueOfCard: "goojf", tooltip: "IMPORTANT: removes last card you drew/remove a card of your choosing"}, {card: "baseball", valueOfCard: "babe ruth", tooltip: "get rid of one of yours or the dealers cards"}];
+{card: "monopoly", valueOfCard: "goojf", tooltip: "removes last card you drew"}, {card: "baseball", valueOfCard: "babe ruth", tooltip: "get rid of one of yours or the dealers cards"}];
 
 //complete deck   NOTE: did not add 2 standard decks, may need to change later
 const completeDeck = [...standardCards, ...unoCards, ...tarotCards, ...mahjongTiles, ...uniqueCards];
