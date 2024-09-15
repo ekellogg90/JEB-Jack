@@ -54,8 +54,8 @@ async function spriteSheetCardCutter(ssWidth, ssHeight, ssRows, ssCols, filePath
     });
 }
 
-export const regularDeckPromise = spriteSheetCardCutter(5020, 5096, 7, 10, '/assets/sprite_sheets/regularDeck.png', 4);
+export const regularDeckPromise = spriteSheetCardCutter(5020, 5096, 7, 10, '/assets/sprite_sheets/regularDeck.jpg', 4);
 export const specialDeck1Promise = spriteSheetCardCutter(4016, 4368, 6, 8, '/assets/sprite_sheets/specialDeck1.jpg', 7);
-export const specialDeck2Promise = spriteSheetCardCutter(2008, 2184, 3, 4, '/assets/sprite_sheets/specialDeck2.png', 1);
+export const specialDeck2Promise = spriteSheetCardCutter(2008, 2184, 3, 4, '/assets/sprite_sheets/specialDeck2.jpg', 1);
 
 export default { regularDeckPromise, specialDeck1Promise, specialDeck2Promise };
